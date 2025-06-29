@@ -144,7 +144,7 @@ plugins:
               - codelldb
               - pyo3_utils
               - pytauri
-              - pytauri_plugins  # it is shipped within the `pytauri` package on PyPI
+              - pytauri_plugins # it is shipped within the `pytauri` package on PyPI
               - pytauri_wheel
             extensions:
               # https://mkdocstrings.github.io/griffe-inherited-docstrings/
@@ -228,46 +228,42 @@ validation:
 # It's used in utils/gen_ref_pages.py
 nav:
   - Home: index.md
-  - Usage:
-      - Tutorial:
-          - usage/tutorial/index.md
-          - usage/tutorial/getting-started.md
-          - usage/tutorial/using-pytauri.md
-          - usage/tutorial/py-js-ipc.md
-          - usage/tutorial/using-plugins.md
-          - usage/tutorial/build-sdist.md
-          - usage/tutorial/build-wheel.md
-          - Build standalone binary:
-              - usage/tutorial/build-standalone.md
-              - usage/tutorial/build-standalone-cython.md
-      - PyTauri Wheel:
-          - usage/pytauri-wheel/index.md
-      - Concepts:
-          - usage/concepts/index.md
-          - usage/concepts/ipc.md
-          - usage/concepts/mutiprocessing.md
-      - Using Unreleased Commits: usage/using-unreleased-commits.md
-  - API Reference:
-      # NOTE:
-      # - DO NOT change `reference/py/`, it's also used in `utils/gen_ref_pages.py`.
-      # - Note the trailing slash! see `mkdocs-literate-nav` docs.
-      - py: reference/py/
-      - rs: reference/rs.md
-  - Contributing:
-      - CONTRIBUTING/index.md
-  - Changelog:
-      - CHANGELOG/index.md
-      # NOTE: must set the title for the first item, or it will be considered as `index`.
-      # see: <https://github.com/oprypin/mkdocs-section-index/issues/6#issuecomment-914666358>
-      - py:
-          - pytauri: CHANGELOG/py/pytauri.md
-          - pytauri-wheel: CHANGELOG/py/pytauri-wheel.md
-          - pyo3-utils: CHANGELOG/py/pyo3-utils.md
-          - codelldb: CHANGELOG/py/codelldb.md
-      - rs:
-          - pytauri: CHANGELOG/rs/pytauri.md
-          - pytauri-core: CHANGELOG/rs/pytauri-core.md
-          - tauri-plugin-pytauri: CHANGELOG/rs/tauri-plugin-pytauri.md
-          - pyo3-utils: CHANGELOG/rs/pyo3-utils.md
-      - js:
-          - tauri-plugin-pytauri-api: CHANGELOG/js/tauri-plugin-pytauri-api.md
+  - Guide:
+    - Introduction:
+      - What is PyTauri: guide/introduction/what-is-pytauri.md
+      - Getting Started: guide/introduction/getting-started.md
+      - Deploy: guide/introduction/deploy.md
+    - Inter-process Communication (IPC):
+      - Overview: guide/ipc/overview.md
+      - Commands: guide/ipc/commands.md
+      - Channels: guide/ipc/channels.md
+      - Event System: guide/ipc/event-system.md
+    - Plugins:
+      - Notification: guide/plugins/notification.md
+    - Development:
+      - Debugging: guide/development/debugging.md
+      - Installing from Git: guide/development/installing-from-git.md
+  - Reference:
+    # NOTE:
+    # - DO NOT change `reference/py/`, it's also used in `utils/gen_ref_pages.py`.
+    # - Note the trailing slash! see `mkdocs-literate-nav` docs.
+    - py: reference/py/
+    - rs: reference/rs.md
+  # - Contributing:
+  #     - CONTRIBUTING/index.md
+  # - Changelog:
+  #     - CHANGELOG/index.md
+  #     # NOTE: must set the title for the first item, or it will be considered as `index`.
+  #     # see: <https://github.com/oprypin/mkdocs-section-index/issues/6#issuecomment-914666358>
+  #     - py:
+  #         - pytauri: CHANGELOG/py/pytauri.md
+  #         - pytauri-wheel: CHANGELOG/py/pytauri-wheel.md
+  #         - pyo3-utils: CHANGELOG/py/pyo3-utils.md
+  #         - codelldb: CHANGELOG/py/codelldb.md
+  #     - rs:
+  #         - pytauri: CHANGELOG/rs/pytauri.md
+  #         - pytauri-core: CHANGELOG/rs/pytauri-core.md
+  #         - tauri-plugin-pytauri: CHANGELOG/rs/tauri-plugin-pytauri.md
+  #         - pyo3-utils: CHANGELOG/rs/pyo3-utils.md
+  #     - js:
+  #         - tauri-plugin-pytauri-api: CHANGELOG/js/tauri-plugin-pytauri-api.md

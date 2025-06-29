@@ -7,6 +7,8 @@
     --md-accent-fg-color: var(--main-color);
     --md-typeset-a-color: var(--main-color) !important;
 
+    --md-default-fg-color--light: white;
+
     --md-footer-bg-color: #181818;
     --md-footer-bg-color--dark: #181818;
 
