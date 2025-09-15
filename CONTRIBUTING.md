@@ -68,7 +68,7 @@ We use [pytest](https://docs.pytest.org/en/stable/) and `cargo test` to test our
 
 ## Documentation
 
-### Python and Toturial
+### Python and Tutorial
 
 We use [mkdocs](https://www.mkdocs.org), [mkdocs-material](https://squidfunk.github.io/mkdocs-material), [mkdocstrings](https://mkdocstrings.github.io) and [mike](https://github.com/jimporter/mike) to build our documentation.
 
