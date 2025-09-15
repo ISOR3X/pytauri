@@ -12,32 +12,27 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
-  logo: assets/logo-white.svg
+  logo: https://raw.githubusercontent.com/pytauri/branding/main/assets/logo-monocolor.svg
   favicon: assets/favicon.png
   icon:
     repo: octicons/mark-github-24
   features:
-    - content.code.copy
-    - content.code.annotate
+    - toc.follow
+    - navigation.path
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.instant.progress
-    # # insiders for `9.6.16`: <https://squidfunk.github.io/mkdocs-material/insiders/benefits/#22000-habanero-orange>
-    # - navigation.instant.preview
-    - navigation.top
-    - navigation.tabs
-    - navigation.path
-    # - navigation.expand
-    # - navigation.tracking
-    - search.suggest
-    - search.highlight
-    - search.share
+    - navigation.sections
+    - navigation.indexes
+    - navigation.tracking
     - navigation.footer
+
+    - content.code.copy
+    - content.code.annotate
     - content.tabs.link
     - content.tooltips
     - content.footnote.tooltips
-    -
-    # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#system-preference
+
   palette: # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
@@ -45,13 +40,13 @@ theme:
         name: Switch to light mode
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: default
+      scheme: pytauri-light
       toggle:
         icon: octicons/moon-16
         name: Switch to dark mode
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+      scheme: pytauri-dark
       toggle:
         icon: octicons/device-desktop-16
         name: Switch to system preference
@@ -228,54 +223,53 @@ validation:
 # Don't change the name "reference/"
 # It's used in utils/gen_ref_pages.py
 nav:
-  - Guide:
-      - Introduction: index.md
-      - Getting Started:
-          - getting-started/index.md
-          - Installation: getting-started/installation.md
-      - Usage:
-          - Tutorial:
-              - usage/tutorial/index.md
-              - usage/tutorial/getting-started.md
-              - usage/tutorial/using-pytauri.md
-              - usage/tutorial/py-js-ipc.md
-              - usage/tutorial/gen-ts.md
-              - usage/tutorial/state-management.md
-              - usage/tutorial/using-plugins.md
-              - usage/tutorial/debugging.md
-              - usage/tutorial/build-sdist.md
-              - usage/tutorial/build-wheel.md
-              - Build Standalone Binary:
-                  - usage/tutorial/build-standalone.md
-                  - usage/tutorial/build-standalone-cython.md
-          - PyTauri Wheel:
-              - usage/pytauri-wheel/index.md
-          - Concepts:
-              - usage/concepts/index.md
-              - usage/concepts/ipc.md
-              - usage/concepts/async.md
-              - usage/concepts/mutiprocessing.md
-          - Using Unreleased Commits: usage/using-unreleased-commits.md
-      - Contributing:
-          - CONTRIBUTING/index.md
-      - Changelog:
-          - CHANGELOG/index.md
-          # NOTE: must set the title for the first item, or it will be considered as `index`.
-          # see: <https://github.com/oprypin/mkdocs-section-index/issues/6#issuecomment-914666358>
-          - py:
-              - pytauri: CHANGELOG/py/pytauri.md
-              - pytauri-wheel: CHANGELOG/py/pytauri-wheel.md
-              - pyo3-utils: CHANGELOG/py/pyo3-utils.md
-              - codelldb: CHANGELOG/py/codelldb.md
-          - rs:
-              - pytauri: CHANGELOG/rs/pytauri.md
-              - pytauri-core: CHANGELOG/rs/pytauri-core.md
-              - tauri-plugin-pytauri: CHANGELOG/rs/tauri-plugin-pytauri.md
-              - pyo3-utils: CHANGELOG/rs/pyo3-utils.md
-          - js:
-              - tauri-plugin-pytauri-api: CHANGELOG/js/tauri-plugin-pytauri-api.md
+  - Introduction: index.md
+  - Getting Started:
+      - getting-started/index.md
+      - Installation: getting-started/installation.md
+  - Usage:
+      - Tutorial:
+          - usage/tutorial/index.md
+          - usage/tutorial/getting-started.md
+          - usage/tutorial/using-pytauri.md
+          - usage/tutorial/py-js-ipc.md
+          - usage/tutorial/gen-ts.md
+          - usage/tutorial/state-management.md
+          - usage/tutorial/using-plugins.md
+          - usage/tutorial/debugging.md
+          - usage/tutorial/build-sdist.md
+          - usage/tutorial/build-wheel.md
+          - Build Standalone Binary:
+              - usage/tutorial/build-standalone.md
+              - usage/tutorial/build-standalone-cython.md
+      - PyTauri Wheel:
+          - usage/pytauri-wheel/index.md
+      - Concepts:
+          - usage/concepts/index.md
+          - usage/concepts/ipc.md
+          - usage/concepts/async.md
+          - usage/concepts/mutiprocessing.md
+      - Using Unreleased Commits: usage/using-unreleased-commits.md
+  - Contributing:
+      - CONTRIBUTING/index.md
+  - Changelog:
+      - CHANGELOG/index.md
+      # NOTE: must set the title for the first item, or it will be considered as `index`.
+      # see: <https://github.com/oprypin/mkdocs-section-index/issues/6#issuecomment-914666358>
+      - py:
+          - pytauri: CHANGELOG/py/pytauri.md
+          - pytauri-wheel: CHANGELOG/py/pytauri-wheel.md
+          - pyo3-utils: CHANGELOG/py/pyo3-utils.md
+          - codelldb: CHANGELOG/py/codelldb.md
+      - rs:
+          - pytauri: CHANGELOG/rs/pytauri.md
+          - pytauri-core: CHANGELOG/rs/pytauri-core.md
+          - tauri-plugin-pytauri: CHANGELOG/rs/tauri-plugin-pytauri.md
+          - pyo3-utils: CHANGELOG/rs/pyo3-utils.md
+      - js:
+          - tauri-plugin-pytauri-api: CHANGELOG/js/tauri-plugin-pytauri-api.md
   - Reference: # NOTE:
       # - DO NOT change `reference/py/`, it's also used in `utils/gen_ref_pages.py`.
       # - Note the trailing slash! see `mkdocs-literate-nav` docs.
-      - py: reference/py/
-      - rs: reference/rs.md
+      - Python: reference/py/
+      - Rust: reference/rs.md
