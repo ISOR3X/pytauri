@@ -223,53 +223,84 @@ validation:
 # Don't change the name "reference/"
 # It's used in utils/gen_ref_pages.py
 nav:
-  - Introduction: index.md
-  - Getting Started:
-      - getting-started/index.md
-      - Installation: getting-started/installation.md
-  - Usage:
-      - Tutorial:
-          - usage/tutorial/index.md
-          - usage/tutorial/getting-started.md
-          - usage/tutorial/using-pytauri.md
-          - usage/tutorial/py-js-ipc.md
-          - usage/tutorial/gen-ts.md
-          - usage/tutorial/state-management.md
-          - usage/tutorial/using-plugins.md
-          - usage/tutorial/debugging.md
-          - usage/tutorial/build-sdist.md
-          - usage/tutorial/build-wheel.md
-          - Build Standalone Binary:
-              - usage/tutorial/build-standalone.md
-              - usage/tutorial/build-standalone-cython.md
-      - PyTauri Wheel:
-          - usage/pytauri-wheel/index.md
-      - Concepts:
-          - usage/concepts/index.md
-          - usage/concepts/ipc.md
-          - usage/concepts/async.md
-          - usage/concepts/mutiprocessing.md
-      - Using Unreleased Commits: usage/using-unreleased-commits.md
-  - Contributing:
-      - CONTRIBUTING/index.md
+  - Introduction:
+    - index.md
+    - What is PyTauri: todo.md
+    - Getting started:
+        - introduction/getting-started/index.md
+        - Starting from scratch: todo.md
+        - Rustless: todo.md
+  - Inter-process communication:
+    - ipc/index.md
+    - Commands: ipc/commands.md
+    - Channels: ipc/channels.md
+    - Event system: ipc/event-system.md
+  - Core-concepts:
+    - core-concepts/index.md
+    - State-management: todo.md
+    - Using Tauri plugins: todo.md
+    - Async and callbacks: todo.md
+  - Deploying:
+    - deploying/index.md
+    - Standalone Binary: deploying/python-wheel.md
+    - Python source (sdist): deploying/python-source.md
+    - Python wheel: deploying/python-wheel.md
+  - Development:
+    - Debugging: todo.md
+    - Generating TypeScript Client for IPC: todo.md
+    - Using unreleased commits: usage/using-unreleased-commits.md
+
+
+
+
+#  - Getting Started:
+#      - getting-started/index.md
+#      - Installation: getting-started/installation.md
+#  - Usage:
+#      - Tutorial:
+#          - usage/tutorial/index.md
+#          - usage/tutorial/getting-started.md
+#          - usage/tutorial/using-pytauri.md
+#          - usage/tutorial/py-js-ipc.md
+#          - usage/tutorial/gen-ts.md
+#          - usage/tutorial/state-management.md
+#          - usage/tutorial/using-plugins.md
+#          - usage/tutorial/debugging.md
+#          - usage/tutorial/build-sdist.md
+#          - usage/tutorial/build-wheel.md
+#          - Build Standalone Binary:
+#              - usage/tutorial/build-standalone.md
+#              - usage/tutorial/build-standalone-cython.md
+#      - PyTauri Wheel:
+#          - usage/pytauri-wheel/index.md
+#      - Concepts:
+#          - usage/concepts/index.md
+#          - usage/concepts/ipc.md
+#          - usage/concepts/async.md
+#          - usage/concepts/mutiprocessing.md
   - Changelog:
       - CHANGELOG/index.md
       # NOTE: must set the title for the first item, or it will be considered as `index`.
       # see: <https://github.com/oprypin/mkdocs-section-index/issues/6#issuecomment-914666358>
-      - py:
+      - Python:
           - pytauri: CHANGELOG/py/pytauri.md
           - pytauri-wheel: CHANGELOG/py/pytauri-wheel.md
           - pyo3-utils: CHANGELOG/py/pyo3-utils.md
           - codelldb: CHANGELOG/py/codelldb.md
-      - rs:
+      - Rust:
           - pytauri: CHANGELOG/rs/pytauri.md
           - pytauri-core: CHANGELOG/rs/pytauri-core.md
           - tauri-plugin-pytauri: CHANGELOG/rs/tauri-plugin-pytauri.md
           - pyo3-utils: CHANGELOG/rs/pyo3-utils.md
-      - js:
+      - Javascript:
           - tauri-plugin-pytauri-api: CHANGELOG/js/tauri-plugin-pytauri-api.md
-  - Reference: # NOTE:
+  - Reference:
+      # NOTE:
       # - DO NOT change `reference/py/`, it's also used in `utils/gen_ref_pages.py`.
       # - Note the trailing slash! see `mkdocs-literate-nav` docs.
       - Python: reference/py/
       - Rust: reference/rs.md
+  - Contributing:
+    - Core: CONTRIBUTING/core.md
+    - Template generator: CONTRIBUTING/template-generator.md
+    - CLI: todo.md
