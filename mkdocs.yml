@@ -13,13 +13,14 @@ edit_uri: edit/main/docs/
 
 # Navigation
 nav:
+  - Home: index.md
   - Guide:
       - What is Pytauri?: what-is-pytauri.md
       - CLI: cli.md
       - Getting started:
           - getting-started/quick-start.md
-          - getting-started-started/starting-from-scratch.md
-          - concepts/deploying.md
+          - getting-started/starting-from-scratch.md
+          - getting-started/deploying.md
       - IPC:
           - Overview: ipc/overview.md
           - ipc/commands.md
@@ -54,6 +55,7 @@ nav:
 theme:
   logo: https://raw.githubusercontent.com/pytauri/branding/main/assets/logo-monocolor.svg
   favicon: assets/favicon.png
+  custom_dir: .zensical/templates
   icon:
     repo: octicons/mark-github-24
   features:

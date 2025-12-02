@@ -1,4 +1,5 @@
 ---
+title: What is PyTauri
 icon: lucide/file-sliders
 ---
 
