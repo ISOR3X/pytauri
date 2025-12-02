@@ -1,61 +1,100 @@
 # $schema: https://squidfunk.github.io/mkdocs-material/schema.json
 
+# Basic
 site_name: PyTauri
 site_url: https://pytauri.github.io/pytauri/
 site_description: Tauri bindings for Python through PyO3
 site_author: Sean Wang
 
-repo_url: https://github.com/pytauri/pytauri/
 repo_name: pytauri/pytauri
+repo_url: https://github.com/pytauri/pytauri/
 
 edit_uri: edit/main/docs/
 
+# Navigation
+nav:
+  - Guide:
+      - What is Pytauri?: what-is-pytauri.md
+      - CLI: cli.md
+      - Getting started:
+          - getting-started/quick-start.md
+          - getting-started-started/starting-from-scratch.md
+          - concepts/deploying.md
+      - IPC:
+          - Overview: ipc/overview.md
+          - ipc/commands.md
+          - ipc/channels.md
+          - ipc/event-system.md
+          - ipc/calling-rust.md
+      - Concepts:
+          - concepts/state-management.md
+          - concepts/async.md
+          - concepts/tauri-plugins.md
+      - Development:
+          - Generating TS types: development/generating-ts-from-py.md
+          - development/debugging.md
+          - development/installing-from-git.md
+  - Reference: reference/index.md
+  - Changelog:
+      - Overview: changelog/index.md
+      - Javascript:
+        - changelog/javascript/tauri-plugin-pytauri.md
+      - Python:
+        - changelog/python/codelldb.md
+        - changelog/python/pyo3-utils.md
+        - changelog/python/pytauri.md
+        - changelog/python/pytauri-wheel.md
+      - Rust:
+        - changelog/rust/pyo3-utils.md
+        - changelog/rust/pytauri.md
+        - changelog/rust/pytauri-core.md
+        - changelog/rust/tauri-plugin-pytauri.md
+
+# Theme
 theme:
-  name: material
   logo: https://raw.githubusercontent.com/pytauri/branding/main/assets/logo-monocolor.svg
   favicon: assets/favicon.png
   icon:
     repo: octicons/mark-github-24
   features:
-    - toc.follow
-    - navigation.path
-    - navigation.instant
-    - navigation.instant.prefetch
-    - navigation.instant.progress
-    - navigation.sections
-    - navigation.indexes
-    - navigation.tracking
-    - navigation.footer
-
-    - content.code.copy
-    - content.code.annotate
-    - content.tabs.link
-    - content.tooltips
-    - content.footnote.tooltips
-
-  palette: # Palette toggle for automatic mode
+    - "navigation.tabs"
+    - "navigation.sections"
+  palette:
+    # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
+      primary: custom
+      accent: custom
       toggle:
-        icon: octicons/sun-16
+        icon: lucide/sun-moon
         name: Switch to light mode
+
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: pytauri-light
+      scheme: default
+      primary: custom
+      accent: custom
       toggle:
-        icon: octicons/moon-16
+        icon: lucide/sun
         name: Switch to dark mode
+
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
-      scheme: pytauri-dark
+      scheme: slate
+      primary: custom
+      accent: custom
       toggle:
-        icon: octicons/device-desktop-16
+        icon: lucide/moon
         name: Switch to system preference
 extra_css:
   - stylesheets/extra.css
 
-markdown_extensions: # Python Markdown
-  - abbr
+markdown_extensions:
+  # admonitions
   - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  # extensions below are leftover from old docs
+  - abbr
   - attr_list
   - def_list
   - footnotes
@@ -71,7 +110,6 @@ markdown_extensions: # Python Markdown
       smart_enable: all
   - pymdownx.critic
   - pymdownx.caret
-  - pymdownx.details
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -84,7 +122,6 @@ markdown_extensions: # Python Markdown
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences
   # - pymdownx.superfences:
   #     custom_fences:
   #       - name: mermaid
@@ -98,10 +135,9 @@ markdown_extensions: # Python Markdown
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-  # TODO: Add llmstxt for better AI support
-  # - llmstxt
 
-plugins: # # for static build
+plugins:
+  # # for static build
   # # see: https://squidfunk.github.io/mkdocs-material/setup/building-for-offline-usage/
   # - offline
   # - privacy
@@ -114,15 +150,18 @@ plugins: # # for static build
       scripts:
         - utils/gen_ref_pages.py
   # see: <https://mkdocstrings.github.io/recipes/#generate-a-literate-navigation-file>
-  - literate-nav: # DO NOT change `SUMMARY.md`, it's used in `utils/gen_ref_pages.py`
+  - literate-nav:
+      # DO NOT change `SUMMARY.md`, it's used in `utils/gen_ref_pages.py`
       nav_file: SUMMARY.md
   - section-index
-  - mkdocstrings: # Modified: https://github.com/mkdocstrings/python/blob/eaf9b8240069f7369f401fe048892043c8b173d3/mkdocs.yml#L140-L166
-      enabled: !ENV [ ENABLE_MKDOCSTRINGS, true ]
+  - mkdocstrings:
+      # Modified: https://github.com/mkdocstrings/python/blob/eaf9b8240069f7369f401fe048892043c8b173d3/mkdocs.yml#L140-L166
+      enabled: !ENV [ENABLE_MKDOCSTRINGS, true]
       default_handler: python
       handlers:
         python:
-          inventories: # see: https://mkdocstrings.github.io/python/usage/#import
+          inventories:
+            # see: https://mkdocstrings.github.io/python/usage/#import
             - https://docs.python.org/3/objects.inv
             - https://docs.pydantic.dev/latest/objects.inv
             - https://anyio.readthedocs.io/en/stable/objects.inv
@@ -132,7 +171,8 @@ plugins: # # for static build
           options:
             docstring_style: google
             members_order: source
-            preload_modules: # see: <https://mkdocstrings.github.io/python/usage/configuration/general/#preload_modules>
+            preload_modules:
+              # see: <https://mkdocstrings.github.io/python/usage/configuration/general/#preload_modules>
               # set these also for `[options.paths]`
               - codelldb
               - pyo3_utils
@@ -140,7 +180,8 @@ plugins: # # for static build
               - pytauri_plugins  # it is shipped within the `pytauri` package on PyPI
               - pytauri_utils  # it is shipped within the `pytauri` package on PyPI
               - pytauri_wheel
-            extensions: # https://mkdocstrings.github.io/griffe-inherited-docstrings/
+            extensions:
+              # https://mkdocstrings.github.io/griffe-inherited-docstrings/
               - griffe_inherited_docstrings
               # https://mkdocstrings.github.io/griffe-pydantic/
               - griffe_pydantic
@@ -170,7 +211,8 @@ plugins: # # for static build
             summary: true
             # https://mkdocstrings.github.io/python/usage/configuration/signatures/?h=unwrap_annotated#unwrap_annotated
             unwrap_annotated: true
-          paths: # set these also for `[options.preload_modules]`
+          paths:
+            # set these also for `[options.preload_modules]`
             - python/codelldb/src
             - python/pyo3-utils/src
             - python/pytauri/src
@@ -178,24 +220,14 @@ plugins: # # for static build
 
   # Remember: https://github.com/timvink/mkdocs-git-revision-date-localized-plugin#note-when-using-build-environments
   - git-revision-date-localized:
-      enabled: !ENV [ CI, false ]
+      enabled: !ENV [CI, false]
       fallback_to_build_date: true
       enable_creation_date: true
       type: timeago
   - git-committers:
-      enabled: !ENV [ CI, false ]
+      enabled: !ENV [CI, false]
       repository: pytauri/pytauri
       branch: main
-
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/pytauri/
-    - icon: fontawesome/brands/discord
-      link: https://discord.com/invite/TaXhVp7Shw
-  # see: https://squidfunk.github.io/mkdocs-material/setup/setting-up-versioning/
-  version:
-    provider: mike
 
 watch:
   - python/
@@ -219,88 +251,3 @@ validation:
   omitted_files: warn
   absolute_links: warn
   unrecognized_links: warn
-
-# Don't change the name "reference/"
-# It's used in utils/gen_ref_pages.py
-nav:
-  - Introduction:
-    - index.md
-    - What is PyTauri: todo.md
-    - Getting started:
-        - introduction/getting-started/index.md
-        - Starting from scratch: todo.md
-        - Rustless: todo.md
-  - Inter-process communication:
-    - ipc/index.md
-    - Commands: ipc/commands.md
-    - Channels: ipc/channels.md
-    - Event system: ipc/event-system.md
-  - Core-concepts:
-    - core-concepts/index.md
-    - State-management: todo.md
-    - Using Tauri plugins: todo.md
-    - Async and callbacks: todo.md
-  - Deploying:
-    - deploying/index.md
-    - Standalone Binary: deploying/python-wheel.md
-    - Python source (sdist): deploying/python-source.md
-    - Python wheel: deploying/python-wheel.md
-  - Development:
-    - Debugging: todo.md
-    - Generating TypeScript Client for IPC: todo.md
-    - Using unreleased commits: usage/using-unreleased-commits.md
-
-
-
-
-#  - Getting Started:
-#      - getting-started/index.md
-#      - Installation: getting-started/installation.md
-#  - Usage:
-#      - Tutorial:
-#          - usage/tutorial/index.md
-#          - usage/tutorial/getting-started.md
-#          - usage/tutorial/using-pytauri.md
-#          - usage/tutorial/py-js-ipc.md
-#          - usage/tutorial/gen-ts.md
-#          - usage/tutorial/state-management.md
-#          - usage/tutorial/using-plugins.md
-#          - usage/tutorial/debugging.md
-#          - usage/tutorial/build-sdist.md
-#          - usage/tutorial/build-wheel.md
-#          - Build Standalone Binary:
-#              - usage/tutorial/build-standalone.md
-#              - usage/tutorial/build-standalone-cython.md
-#      - PyTauri Wheel:
-#          - usage/pytauri-wheel/index.md
-#      - Concepts:
-#          - usage/concepts/index.md
-#          - usage/concepts/ipc.md
-#          - usage/concepts/async.md
-#          - usage/concepts/mutiprocessing.md
-  - Changelog:
-      - CHANGELOG/index.md
-      # NOTE: must set the title for the first item, or it will be considered as `index`.
-      # see: <https://github.com/oprypin/mkdocs-section-index/issues/6#issuecomment-914666358>
-      - Python:
-          - pytauri: CHANGELOG/py/pytauri.md
-          - pytauri-wheel: CHANGELOG/py/pytauri-wheel.md
-          - pyo3-utils: CHANGELOG/py/pyo3-utils.md
-          - codelldb: CHANGELOG/py/codelldb.md
-      - Rust:
-          - pytauri: CHANGELOG/rs/pytauri.md
-          - pytauri-core: CHANGELOG/rs/pytauri-core.md
-          - tauri-plugin-pytauri: CHANGELOG/rs/tauri-plugin-pytauri.md
-          - pyo3-utils: CHANGELOG/rs/pyo3-utils.md
-      - Javascript:
-          - tauri-plugin-pytauri-api: CHANGELOG/js/tauri-plugin-pytauri-api.md
-  - Reference:
-      # NOTE:
-      # - DO NOT change `reference/py/`, it's also used in `utils/gen_ref_pages.py`.
-      # - Note the trailing slash! see `mkdocs-literate-nav` docs.
-      - Python: reference/py/
-      - Rust: reference/rs.md
-  - Contributing:
-    - Core: CONTRIBUTING/core.md
-    - Template generator: CONTRIBUTING/template-generator.md
-    - CLI: todo.md
