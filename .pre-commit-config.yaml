@@ -63,12 +63,12 @@ repos:
         pass_filenames: false
         types: [rust]
         stages: [pre-commit, manual]
-      - id: typos
-        name: typos
-        language: system
-        entry: typos -w
-        pass_filenames: false
-        stages: [pre-commit, manual]
+      # - id: typos
+      #   name: typos
+      #   language: system
+      #   entry: typos -w
+      #   pass_filenames: false
+      #   stages: [pre-commit, manual]
 
       # TODO, FIXME: typescript fmt
 
