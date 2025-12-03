@@ -37,8 +37,8 @@
 }
 
 .hero_container_cards {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .hero_container_image {
@@ -60,4 +60,14 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
   margin: 1em 0;
+}
+
+.hero_warning {
+  font-weight: 600;
+  padding: 2rem;
+  border-width: 1px;
+  border-color: var(--color-brand);
+  border-style: solid;
+  border-radius: 0.4rem;
+  background-color: color-mix(in oklab, var(--color-brand), transparent 90%);
 }

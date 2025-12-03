@@ -37,7 +37,7 @@ nav:
           - development/installing-from-git.md
   - Reference:
       - Test: reference/index.md
-      - Python: reference/py/
+      # - Python: reference/py/
   - Changelog:
       - Overview: changelog/index.md
       - Javascript:
