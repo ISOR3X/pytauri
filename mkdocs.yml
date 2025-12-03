@@ -35,7 +35,9 @@ nav:
           - Generating TS types: development/generating-ts-from-py.md
           - development/debugging.md
           - development/installing-from-git.md
-  - Reference: reference/index.md
+  - Reference:
+      - Test: reference/index.md
+      - Python: reference/py/
   - Changelog:
       - Overview: changelog/index.md
       - Javascript:
@@ -96,49 +98,50 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   # extensions below are leftover from old docs
-  - abbr
-  - attr_list
-  - def_list
-  - footnotes
-  - md_in_html
-  - tables
-  - toc:
-      permalink: true
+  # - abbr
+  # - attr_list
+  # - def_list
+  # - footnotes
+  # - md_in_html
+  # - tables
+  # - toc:
+  #     permalink: true
 
-  # Python Markdown Extensions
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.critic
-  - pymdownx.caret
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.snippets
-  - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.smartsymbols
-  # - pymdownx.superfences:
-  #     custom_fences:
-  #       - name: mermaid
-  #         class: mermaid
-  #         format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed:
-      alternate_style: true
-      slugify: !!python/object/apply:pymdownx.slugs.slugify
-        kwds:
-          case: lower
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tilde
+  # # Python Markdown Extensions
+  # - pymdownx.arithmatex:
+  #     generic: true
+  # - pymdownx.betterem:
+  #     smart_enable: all
+  # - pymdownx.critic
+  # - pymdownx.caret
+  # - pymdownx.emoji:
+  #     emoji_index: !!python/name:material.extensions.emoji.twemoji
+  #     emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  # - pymdownx.highlight:
+  #     anchor_linenums: true
+  #     line_spans: __span
+  #     pygments_lang_class: true
+  # - pymdownx.snippets
+  # - pymdownx.inlinehilite
+  # - pymdownx.keys
+  # - pymdownx.mark
+  # - pymdownx.smartsymbols
+  # # - pymdownx.superfences:
+  # #     custom_fences:
+  # #       - name: mermaid
+  # #         class: mermaid
+  # #         format: !!python/name:pymdownx.superfences.fence_code_format
+  # - pymdownx.tabbed:
+  #     alternate_style: true
+  #     slugify: !!python/object/apply:pymdownx.slugs.slugify
+  #       kwds:
+  #         case: lower
+  # - pymdownx.tasklist:
+  #     custom_checkbox: true
+  # - pymdownx.tilde
 
-plugins:
+# plugins:
+  # plugins below are leftover from old docs
   # # for static build
   # # see: https://squidfunk.github.io/mkdocs-material/setup/building-for-offline-usage/
   # - offline
@@ -147,109 +150,108 @@ plugins:
   # # for optimized build
   # see: https://squidfunk.github.io/mkdocs-material/setup/building-an-optimized-site/
   # - optimize
-  - search
-  - gen-files:
-      scripts:
-        - utils/gen_ref_pages.py
+  # - search
+  # - gen-files:
+  #     scripts:
+  #       - utils/gen_ref_pages.py
   # see: <https://mkdocstrings.github.io/recipes/#generate-a-literate-navigation-file>
-  - literate-nav:
-      # DO NOT change `SUMMARY.md`, it's used in `utils/gen_ref_pages.py`
-      nav_file: SUMMARY.md
-  - section-index
-  - mkdocstrings:
-      # Modified: https://github.com/mkdocstrings/python/blob/eaf9b8240069f7369f401fe048892043c8b173d3/mkdocs.yml#L140-L166
-      enabled: !ENV [ENABLE_MKDOCSTRINGS, true]
-      default_handler: python
-      handlers:
-        python:
-          inventories:
-            # see: https://mkdocstrings.github.io/python/usage/#import
-            - https://docs.python.org/3/objects.inv
-            - https://docs.pydantic.dev/latest/objects.inv
-            - https://anyio.readthedocs.io/en/stable/objects.inv
-            - https://typing-extensions.readthedocs.io/en/stable/objects.inv
-            - https://pillow.readthedocs.io/en/stable/objects.inv
-            - https://multidict.aio-libs.org/en/stable/objects.inv
-          options:
-            docstring_style: google
-            members_order: source
-            preload_modules:
-              # see: <https://mkdocstrings.github.io/python/usage/configuration/general/#preload_modules>
-              # set these also for `[options.paths]`
-              - codelldb
-              - pyo3_utils
-              - pytauri
-              - pytauri_plugins  # it is shipped within the `pytauri` package on PyPI
-              - pytauri_utils  # it is shipped within the `pytauri` package on PyPI
-              - pytauri_wheel
-            extensions:
-              # https://mkdocstrings.github.io/griffe-inherited-docstrings/
-              - griffe_inherited_docstrings
-              # https://mkdocstrings.github.io/griffe-pydantic/
-              - griffe_pydantic
-              # https://mkdocstrings.github.io/griffe-warnings-deprecated/
-              - griffe_warnings_deprecated
-            # https://mkdocstrings.github.io/python/usage/configuration/headings/#parameter_headings
-            parameter_headings: true
-            # https://mkdocstrings.github.io/python/usage/configuration/docstrings/#show_if_no_docstring
-            show_if_no_docstring: true
-            # https://mkdocstrings.github.io/python/usage/configuration/docstrings/?h=merge_init_into_class#merge_init_into_class
-            docstring_options:
-              ignore_init_summary: true
-            merge_init_into_class: true
-            # https://mkdocstrings.github.io/python/usage/configuration/headings/?h=heading_level#show_root_heading
-            heading_level: 1
-            show_root_heading: true
-            # https://mkdocstrings.github.io/python/usage/configuration/members/?h=inherited_members#inherited_members
-            inherited_members: true
-            # https://mkdocstrings.github.io/python/usage/configuration/signatures/#signature_crossrefs
-            separate_signature: true
-            show_signature_annotations: true
-            signature_crossrefs: true
-            # https://mkdocstrings.github.io/python/usage/configuration/headings/#show_symbol_type_toc
-            show_symbol_type_toc: true
-            show_symbol_type_heading: true
-            # https://mkdocstrings.github.io/python/usage/configuration/members/?h=summary#summary
-            summary: true
-            # https://mkdocstrings.github.io/python/usage/configuration/signatures/?h=unwrap_annotated#unwrap_annotated
-            unwrap_annotated: true
-          paths:
-            # set these also for `[options.preload_modules]`
-            - python/codelldb/src
-            - python/pyo3-utils/src
-            - python/pytauri/src
-            - python/pytauri-wheel/python/pytauri_wheel
+  # - literate-nav:
+  #     # DO NOT change `SUMMARY.md`, it's used in `utils/gen_ref_pages.py`
+  #     nav_file: SUMMARY.md
+  # - section-index
+  # - mkdocstrings:
+  #     # Modified: https://github.com/mkdocstrings/python/blob/eaf9b8240069f7369f401fe048892043c8b173d3/mkdocs.yml#L140-L166
+  #     enabled: !ENV [ENABLE_MKDOCSTRINGS, true]
+  #     default_handler: python
+  #     handlers:
+  #       python:
+  #         inventories:
+  #           # see: https://mkdocstrings.github.io/python/usage/#import
+  #           - https://docs.python.org/3/objects.inv
+  #           - https://docs.pydantic.dev/latest/objects.inv
+  #           - https://anyio.readthedocs.io/en/stable/objects.inv
+  #           - https://typing-extensions.readthedocs.io/en/stable/objects.inv
+  #           - https://pillow.readthedocs.io/en/stable/objects.inv
+  #           - https://multidict.aio-libs.org/en/stable/objects.inv
+  #         options:
+  #           docstring_style: google
+  #           members_order: source
+  #           preload_modules:
+  #             # see: <https://mkdocstrings.github.io/python/usage/configuration/general/#preload_modules>
+  #             # set these also for `[options.paths]`
+  #             - codelldb
+  #             - pyo3_utils
+  #             - pytauri
+  #             - pytauri_plugins  # it is shipped within the `pytauri` package on PyPI
+  #             - pytauri_utils  # it is shipped within the `pytauri` package on PyPI
+  #             - pytauri_wheel
+  #           extensions:
+  #             # https://mkdocstrings.github.io/griffe-inherited-docstrings/
+  #             - griffe_inherited_docstrings
+  #             # https://mkdocstrings.github.io/griffe-pydantic/
+  #             - griffe_pydantic
+  #             # https://mkdocstrings.github.io/griffe-warnings-deprecated/
+  #             - griffe_warnings_deprecated
+  #           # https://mkdocstrings.github.io/python/usage/configuration/headings/#parameter_headings
+  #           parameter_headings: true
+  #           # https://mkdocstrings.github.io/python/usage/configuration/docstrings/#show_if_no_docstring
+  #           show_if_no_docstring: true
+  #           # https://mkdocstrings.github.io/python/usage/configuration/docstrings/?h=merge_init_into_class#merge_init_into_class
+  #           docstring_options:
+  #             ignore_init_summary: true
+  #           merge_init_into_class: true
+  #           # https://mkdocstrings.github.io/python/usage/configuration/headings/?h=heading_level#show_root_heading
+  #           heading_level: 1
+  #           show_root_heading: true
+  #           # https://mkdocstrings.github.io/python/usage/configuration/members/?h=inherited_members#inherited_members
+  #           inherited_members: true
+  #           # https://mkdocstrings.github.io/python/usage/configuration/signatures/#signature_crossrefs
+  #           separate_signature: true
+  #           show_signature_annotations: true
+  #           signature_crossrefs: true
+  #           # https://mkdocstrings.github.io/python/usage/configuration/headings/#show_symbol_type_toc
+  #           show_symbol_type_toc: true
+  #           show_symbol_type_heading: true
+  #           # https://mkdocstrings.github.io/python/usage/configuration/members/?h=summary#summary
+  #           summary: true
+  #           # https://mkdocstrings.github.io/python/usage/configuration/signatures/?h=unwrap_annotated#unwrap_annotated
+  #           unwrap_annotated: true
+  #         paths:
+  #           # set these also for `[options.preload_modules]`
+  #           - python/codelldb/src
+  #           - python/pyo3-utils/src
+  #           - python/pytauri/src
+  #           - python/pytauri-wheel/python/pytauri_wheel
+  # # Remember: https://github.com/timvink/mkdocs-git-revision-date-localized-plugin#note-when-using-build-environments
+  # - git-revision-date-localized:
+  #     enabled: !ENV [CI, false]
+  #     fallback_to_build_date: true
+  #     enable_creation_date: true
+  #     type: timeago
+  # - git-committers:
+  #     enabled: !ENV [CI, false]
+  #     repository: pytauri/pytauri
+  #     branch: main
 
-  # Remember: https://github.com/timvink/mkdocs-git-revision-date-localized-plugin#note-when-using-build-environments
-  - git-revision-date-localized:
-      enabled: !ENV [CI, false]
-      fallback_to_build_date: true
-      enable_creation_date: true
-      type: timeago
-  - git-committers:
-      enabled: !ENV [CI, false]
-      repository: pytauri/pytauri
-      branch: main
+# watch:
+#   - python/
+#   - docs_src/
+#   - README.md
+#   - CONTRIBUTING.md
+#   - CHANGELOG.md
+#   # py
+#   - python/pytauri/CHANGELOG.md
+#   - python/pyo3-utils/CHANGELOG.md
+#   - python/codelldb/CHANGELOG.md
+#   # rs
+#   - crates/pytauri/CHANGELOG.md
+#   - crates/pytauri-core/CHANGELOG.md
+#   - crates/tauri-plugin-pytauri/CHANGELOG.md
+#   - crates/pyo3-utils/CHANGELOG.md
+#   # js
+#   - crates/tauri-plugin-pytauri/guest-js/CHANGELOG.md
 
-watch:
-  - python/
-  - docs_src/
-  - README.md
-  - CONTRIBUTING.md
-  - CHANGELOG.md
-  # py
-  - python/pytauri/CHANGELOG.md
-  - python/pyo3-utils/CHANGELOG.md
-  - python/codelldb/CHANGELOG.md
-  # rs
-  - crates/pytauri/CHANGELOG.md
-  - crates/pytauri-core/CHANGELOG.md
-  - crates/tauri-plugin-pytauri/CHANGELOG.md
-  - crates/pyo3-utils/CHANGELOG.md
-  # js
-  - crates/tauri-plugin-pytauri/guest-js/CHANGELOG.md
-
-validation:
-  omitted_files: warn
-  absolute_links: warn
-  unrecognized_links: warn
+# validation:
+#   omitted_files: warn
+#   absolute_links: warn
+#   unrecognized_links: warn
