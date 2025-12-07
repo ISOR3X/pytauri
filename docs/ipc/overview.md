@@ -4,19 +4,19 @@ icon: lucide/cable
 
 # Inter-process communication
 
-PyTauri implements an IPC API similar to that of Tauri. For more information on the different IPC mechanics, you can
-read the Tauri documentation on calling [Rust from the Frontend](https://tauri.app/develop/calling-rust/)
+PyTauri implements an IPC API similar to that of Tauri.
 
-There are three ways of communicating between the frontend and backend:
+There are four ways of communicating between the frontend and backend:
 
-1. Commands: One-way communication (frontend to backend) with type safety.
-2. Channels: Two-way communication designed for fast and delivering ordered data.
-3. Events: Simple communication system that only supports JSON payloads. Works bidirectionally.
+1. [Commands](./commands.md): One-way communication (frontend to backend) with type safety.
+2. [Channels](./channels.md): Two-way communication designed for fast and delivering ordered data.
+3. [Events](./event-system.md): Simple communication system that only supports JSON payloads. Works bidirectionally.
 
 Additionally, there is `WebviewWindow.eval` which can be used to directly execute JavaScript from Python. This, however,
 is unrecommended as it has no security and generally has no use case above the prior mentioned systems.
 
-When using the `core` version of PyTauri, it is also possible to call Rust from Python and vice versa.
+For in-depth explanation about each pattern you can read the Tauri documentation on calling [Rust from the Frontend](https://tauri.app/develop/calling-rust/).
+
 
 ## Commands
 

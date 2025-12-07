@@ -35,9 +35,7 @@ nav:
           - Generating TS types: development/generating-ts-from-py.md
           - development/debugging.md
           - development/installing-from-git.md
-  - Reference:
-      - Test: reference/index.md
-      # - Python: reference/py/
+  - Reference: https://pytauri.github.io/pytauri/latest/reference/py/pytauri/
   - Changelog:
       - Overview: changelog/index.md
       - Javascript:
@@ -63,6 +61,7 @@ theme:
   features:
     - "navigation.tabs"
     - "navigation.sections"
+    - content.footnote.tooltips
   palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
@@ -98,6 +97,10 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  # footnotes
+  - footnotes
+  # snippets
+  - pymdownx.snippets
   # extensions below are leftover from old docs
   # - abbr
   # - attr_list
