@@ -57,7 +57,7 @@ nav:
 theme:
   logo: https://raw.githubusercontent.com/pytauri/branding/main/assets/logo-monocolor.svg
   favicon: assets/favicon.png
-  custom_dir: .zensical/templates
+  custom_dir: .zensical
   icon:
     repo: octicons/mark-github-24
   features:
@@ -91,6 +91,7 @@ theme:
         name: Switch to system preference
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/hero.css
 
 markdown_extensions:
   # admonitions

@@ -16,7 +16,6 @@ hero:
     - theme: alt
       text: Quickstart
       link: ./getting-started/quick-start
-  image:
-    src: https://raw.githubusercontent.com/pytauri/branding/main/assets/logo-gradient.svg
-    alt: PyTauri
+  logo: https://raw.githubusercontent.com/pytauri/branding/main/assets/logo-gradient.svg
+  backgroundImage: https://raw.githubusercontent.com/pytauri/branding/feat/temp/assets/mesh-gradient.png
 ---
