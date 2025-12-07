@@ -41,7 +41,6 @@
   small {
     opacity: 0.8;
   }
-
 }
 .md-container {
   display: flex;
@@ -77,7 +76,10 @@
   }
 }
 
-
 .md-header {
-    background-color: transparent !important;
+  background-color: transparent !important;
+}
+
+[data-md-component="announce"] {
+  z-index: 10;
 }

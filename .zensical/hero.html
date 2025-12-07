@@ -1,14 +1,19 @@
-{% extends "base.html" %} {% block styles %} {{ super() }} {# TODO: add hero.css
-here instead of having to add it with the extra_css config #}
+{% extends "base.html" %} {% block announce %} Work in progress documentation,
+please use
+<a href="https://pytauri.github.io/pytauri/latest/"
+  >the stable documentation instead.</a
+>
+{% endblock %} {% block styles %} {{ super() }} {# TODO: add hero.css here
+instead of having to add it with the extra_css config #}
 <style>
   .mdx-hero {
-      background-image: url("{{ page.meta.hero.backgroundImage | url }}");
+    background-image: url("{{ page.meta.hero.backgroundImage | url }}");
   }
 </style>
 {% endblock%} {% block content %}
-<div class="mdx-hero" ></div>
+<div class="mdx-hero"></div>
 <div class="mdx-logo">
-    <img src="{{ page.meta.hero.logo }}" alt="logo" />
+  <img src="{{ page.meta.hero.logo }}" alt="logo" />
 </div>
 
 <div class="md-container">
