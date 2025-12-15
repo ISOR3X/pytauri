@@ -1,0 +1,14 @@
+:root > * {
+  --color-brand: #2294b2;
+
+  --md-primary-fg-color: var(--color-brand);
+  --md-primary-fg-color--light: #ecb7b7;
+  --md-primary-fg-color--dark: #90030c;
+
+  --md-accent-fg-color: var(--color-brand);
+  --md-accent-fg-color--transparent: color-mix(
+    in oklab,
+    var(--color-brand),
+    transparent 70%
+  );
+}

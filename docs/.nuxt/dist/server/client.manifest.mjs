@@ -1,1 +1,0 @@
-export { default } from "file:///C:/Users/Joram/Projects/javascript/pytauri/node_modules/.pnpm/@nuxt+vite-builder@4.2.2_@t_eb5ccf483ccb2b48eedf3fb7f6f5ad11/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"

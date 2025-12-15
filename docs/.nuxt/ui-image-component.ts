@@ -1,1 +1,0 @@
-export { default } from "C:/Users/Joram/Projects/javascript/pytauri/node_modules/.pnpm/@nuxt+image@2.0.0_db0@0.3.4_3e2a627a3997f119dbf4d11f7892fc54/node_modules/@nuxt/image/dist/runtime/components/NuxtImg.vue";

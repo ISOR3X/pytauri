@@ -1,0 +1,85 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  background-color: #0b0c0f;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.mdx-teaser {
+  bottom: 96px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 3;
+
+  h1 {
+    color: rgb(255, 255, 255);
+    font-size: 48px;
+    letter-spacing: -0.05em;
+    line-height: 1.2;
+    margin-bottom: 0px;
+    max-width: 420px;
+    text-shadow: rgb(0, 0, 0) 0px 0px 16px;
+  }
+
+  p {
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 500px;
+    text-shadow: rgb(0, 0, 0) 0px 0px 8px;
+  }
+
+  small {
+    opacity: 0.8;
+  }
+}
+.md-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.md-button-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.mdx-hero {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /*mix-blend-mode: lighten;*/
+}
+
+.mdx-logo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+
+  img {
+    width: 20rem;
+  }
+}
+
+.md-header {
+  background-color: transparent !important;
+}
+
+[data-md-component="announce"] {
+  z-index: 10;
+}
