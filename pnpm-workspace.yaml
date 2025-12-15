@@ -3,6 +3,7 @@ packages:
   - examples/tauri-app
   - examples/tauri-app-wheel
   - crates/tauri-plugin-pytauri/guest-js
+  - docs/
 
 catalog:
   '@tauri-apps/api': ^2.8
@@ -13,4 +14,8 @@ catalog:
 catalogMode: prefer
 
 onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - better-sqlite3
   - esbuild
+  - sharp
+  - vue-demi

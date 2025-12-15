@@ -13,3 +13,8 @@ coverage.xml
 
 # JetBrains IDE's
 .idea
+
+# Nuxt
+.data
+.nuxt
+.ruff_cache
