@@ -8,4 +8,13 @@ export default defineNuxtConfig({
   mcp: {
     enabled: false,
   },
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          langs: ["python", "json", "toml"],
+        },
+      },
+    },
+  },
 });

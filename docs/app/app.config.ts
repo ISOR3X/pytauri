@@ -11,8 +11,5 @@ export default defineAppConfig({
       primary: "cyan",
       neutral: "zinc",
     },
-    pageHero: {
-      
-    }
   },
 });
